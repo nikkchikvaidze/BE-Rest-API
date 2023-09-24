@@ -1,8 +1,11 @@
+const Tour = require('./../tourModel/tourModel');
 
-getAllTours = (req,res) =>{
+
+getAllTours = async (req,res) =>{
+    const tours = await Tour.find();
     res.status(200).json({
         status: 'success',
-        message: 'it works'
+        data: {tours}
     })
 }
 createTour = (req,res) =>{
